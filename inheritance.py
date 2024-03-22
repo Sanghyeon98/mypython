@@ -37,3 +37,47 @@
             # 그대로 사용한다.!
                         
                         
+class A :
+    def __init__(self, data =10) :
+        self.data =data
+        print("부모 생성자 호출")
+        
+    def printData(self):
+        print(self.data)
+    
+    def show(self):
+        print("부모 메소드")
+        
+class B(A):
+    # pass
+    def __init__(self, data, data2):
+        # A.__init__(self, data)
+        super().__init__(data)
+        # self.data =data
+        self.data2=data2
+   
+    # def printData2(self):
+    #     print(self.data, self.data2)
+        
+    #Overriding
+    def printData(self):
+        print(self.data, self.data2)
+
+# b = B()
+# b.printData()        
+# b.show()
+
+b= B(30,20)
+b.printData()
+
+#다형성(polymorphism)
+        #재정의 : 부모 필드에서 수정하고 싶은 메소드는
+        #자식 필드에서 같은 이름으로 재선언 할수 있다.
+        
+        # 항상 부모 생성자가 먼저 호출되어 부모 필드가 메모리에 할당된다.
+        # 먼저 할당된 부모 필드에 a라는 메소드가 있다면, 나중에 할당되는
+        # 자식 필드의 a메소드의 기능(소스코드의 주소값)으로 덮어 씌워 진다.
+        
+        # data =10 :부모
+        # data =20 : 자식
+        # print(data) == 20출력
