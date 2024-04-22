@@ -1,4 +1,4 @@
-from selenium import webdriver
+from exSelenium import webdriver
 import requests
 from bs4 import BeautifulSoup
 import openpyxl
